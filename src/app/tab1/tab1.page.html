@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      MAPA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Seleccione Opcion
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Ubicacion</ion-label>
+      <ion-select id="customPopoverSelect" interface="popover" placeholder="Select One" (ionChange)="onChange($event)">
+        <ion-select-option value="{{direccion.geo}}" *ngFor="let direccion of direcciones">{{direccion.lugar}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+   </ion-list>
+
+   <ion-item-divider color="secondary">
+    <ion-label>
+     MAPA
+    </ion-label>
+  </ion-item-divider>
+
+  <app-agm [dirActual]="dirActual" [data]="data"></app-agm>
+
+</ion-content>
